@@ -1,12 +1,14 @@
 # Angular courses app
 
-## Challenges
+List all our challenges for this Angular course
 
-List all our challenges for this Angular 2 course
+## 00 - Introduction
 
-### 00 - Introduction
+[step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
-No Challenge here but some commands to type in a terminal.
+Not really a challenge but it's an howTo bootstrap the app.
+
+### Install NVM (if wanted
 
 1. Install NVM (https://github.com/creationix/nvm#install-script)
 2. Install a Node Version through NVM
@@ -14,14 +16,21 @@ No Challenge here but some commands to type in a terminal.
 nvm install 7
 nvm alias default 7
 ```
-3. Install (`angular-cli`)[https://cli.angular.io]
+
+### Ensure node is installed w/ npm
+
+```
+$ node -v
+v8.1.0
+$ npm -v
+5.0.3
+```
+
+### Install [@angular/cli](https://cli.angular.io) globally
+
 `npm install -g @angular/cli
-4. Create a working directory
-```
-mkdir my/working/directory
-cd my/working/directory
-```
-5. Boostrap an angular cli application
+
+### Boostrap an angular cli application (updated guide on official website https://cli.angular.io)
 ```
 ng new myProjectName
 cd myProjectName
@@ -29,37 +38,44 @@ cd myProjectName
 ng serve
 ```
 
-You can also clone this project and switch between branches
+Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
-### Bonus
+## 01 - Introduction to Components
 
-Take a look at https://yarnpkg.com to get a faster Node Package Manager
-
-### 01 - Introduction to Components
+Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 **Main idea: use ng generate and be familiar with basic component**
 
 1. Create a component called `header`
-`ng generate component header`
+```
+$ ng generate component header
+```
 2. Add the selector element `<app-header></<app-header>` into the main HTML `app.component.html`
 3. Play with template to see what's going on
-  a. Add link to welcome & products page
+  a. Add [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md) or [angular2-materialize](https://github.com/InfomediaLtd/angular2-materialize#installing--configuring-angular2-materialize-in-projects-created-with-the-angular-cli)
+  c. Design a navbar header to display the name of app and links for future routes
   b. Add code between `<app-header>` and `</<app-header>`
   c. be genious :D
 
+Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
+
 ### 02 - Templates, Interpolation & Directives
 
-*Working based on 03 source code*
+Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 **Main idea: create a product list view by using *ngIf & *ngFor directives**
 
 1. Create a component called `product-list`
 
-`ng generate component product/product-list`
+```
+ng generate component product/product-list
+```
 
 2. Inject the created component into the `app.component.html`
 
-`<app-product-list></app-product-list>`
+```
+<app-product-list></app-product-list>
+```
 
 3. Now, add an default products list into our `ProductListComponent` class (find below a default products array)
 
@@ -119,16 +135,17 @@ Take a look at https://yarnpkg.com to get a faster Node Package Manager
   ```
 
 4. Work on the product-list component template
+    - Add a table to display product (display image url as text)
+  
+    - Use `*ngIf` directive to show the table if there is no product in the array
+  
+    - Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
+  
+    - Add a button to show/hide all images on the page (you can handle click by using `<button (click)="myPublicMethod()"></button>`)
+  
+5. Bonus: Create a ProductListDetail component to replace HTML code of `*ngFor`
 
-  4.1 Add a table to display product (display image url as text)
-  
-  4.2 Use `*ngIf` directive to show the table if there is no product in the array
-  
-  4.3 Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
-  
-  4.4 Add a button to show/hide all images on the page
-  
-5. OPTIONAL: Add multiple images per product with a caroussel
+Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
 ### 03 - Data Binding & Pipes
 
