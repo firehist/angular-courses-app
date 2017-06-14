@@ -56,6 +56,7 @@ Take a look at https://yarnpkg.com to get a faster Node Package Manager
 1. Create a component called `product-list`
 2. Add the selector element into the `app.component.html`
 3. Work on the product-list component class
+
   a. Add an initial collection of product
   ```
   products = [
@@ -112,10 +113,15 @@ Take a look at https://yarnpkg.com to get a faster Node Package Manager
     ]
   ```
 4. Work on the product-list component template
+
   a. Add a table to display product (display image url as text)
+  
   b. Use `*ngIf` directive to show the table if there is no product in the array
+  
   c. Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
+  
   d. Add a button to show/hide all images on the page
+  
 5. OPTIONAL: Add multiple images per product with a caroussel
 
 ### 03 - Data Binding & Pipes
