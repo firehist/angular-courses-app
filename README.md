@@ -54,10 +54,15 @@ Take a look at https://yarnpkg.com to get a faster Node Package Manager
 **Main idea: create a product list view by using *ngIf & *ngFor directives**
 
 1. Create a component called `product-list`
-2. Add the selector element into the `app.component.html`
-3. Work on the product-list component class
 
-  a. Add an initial collection of product
+`ng generate component product/product-list`
+
+2. Inject the created component into the `app.component.html`
+
+`<app-product-list></app-product-list>`
+
+3. Now, add an default products list into our `ProductListComponent` class (find below a default products array)
+
   ```
   products = [
         {
@@ -112,15 +117,16 @@ Take a look at https://yarnpkg.com to get a faster Node Package Manager
         }
     ]
   ```
+
 4. Work on the product-list component template
 
-  a. Add a table to display product (display image url as text)
+  4.1 Add a table to display product (display image url as text)
   
-  b. Use `*ngIf` directive to show the table if there is no product in the array
+  4.2 Use `*ngIf` directive to show the table if there is no product in the array
   
-  c. Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
+  4.3 Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
   
-  d. Add a button to show/hide all images on the page
+  4.4 Add a button to show/hide all images on the page
   
 5. OPTIONAL: Add multiple images per product with a caroussel
 
@@ -170,8 +176,8 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 *Working based on 08 source code*
 
 1. Import the `HttpModule` into the `AppModule` (if not already done)
-    1. Install the `@angular/http` module
-    3. Import the `HttpModule` into our `AppModule`
+    1.1 Install the `@angular/http` module
+    1.2 Import the `HttpModule` into our `AppModule`
 2. Inject `Http` into our `ProductService`
 3. Update the `getProducts()` method to make a `get` call to our API Service `http://localhost:3000/products`
 4. Use `RxJS` methods:
