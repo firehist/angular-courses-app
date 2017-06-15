@@ -161,10 +161,11 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 
 *Working based on 05 source code*
 
-1. Develop the `productFilter` pipe and use it into the product-list view.
+1. Develop the `product` pipe and use it into the product-list view.
 2. Use Component lifecycle to `console.log` a message into the `onInit` event
 3. Add specific style for the product-list component
-4. Add filter to product information (eg: currency, uppercase, etc.)
+4. Add pipe to products `*ngFor` (eg: currency, uppercase, etc.)
+5. Add your custom Pipe `reverse`
 
 ### 05 - Building Nested Component
 
