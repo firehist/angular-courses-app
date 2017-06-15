@@ -155,6 +155,7 @@ Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tre
 2. Insert a button at the top of the table and set an *event binding* to display and hide all images
 The text should be adapted to the current stage: `Show the images` or `Hide the images`
 3. Develop the filter two-way binding (input text <=> display) (*use banana in the box `[()]`*)
+4. Create a custom Pipe to reverse a word
 
 ### 04 - More on components
 
