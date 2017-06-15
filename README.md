@@ -141,8 +141,6 @@ ng generate component product/product-list
   
     - Use `*ngFor` directive on `<tr>` element to repeat this element as many times as products in the array
   
-    - Add a button to show/hide all images on the page (you can handle click by using `<button (click)="myPublicMethod()"></button>`)
-  
 5. Bonus: Create a ProductListDetail component to replace HTML code of `*ngFor`
 
 Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
@@ -152,7 +150,7 @@ Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tre
 *Working based on 04 source code*
 
 1. Display image as `<img src...` into the table with a *property binding* to `product.imageUrl` 
-2. Insert a button at the top of the table and set an *event binding* to display and hide all images
+2. Add a button to show/hide all images on the page (you can handle click by using `<button (click)="myPublicMethod()"></button>`)
 The text should be adapted to the current stage: `Show the images` or `Hide the images`
 3. Develop the filter two-way binding (input text <=> display) (*use banana in the box `[()]`*)
 4. Create a custom Pipe to reverse a word
