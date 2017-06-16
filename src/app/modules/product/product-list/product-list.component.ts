@@ -9,10 +9,17 @@ export class ProductListComponent implements OnInit {
 
   pageTitle: string = 'Product List'
   showImage: boolean = true;
-  listFilter: string = '';
+
+  filter: IProductListFilter = {
+    list: '',
+    category: 'all'
+  };
+
+  
   products: IProduct[] = [
         {
             'id': 1,
+            'category': 'immediat',
             'productName': 'Leaf Rake',
             'productCode': 'GDN-0011',
             'releaseDate': 'March 19, 2016',
@@ -23,6 +30,7 @@ export class ProductListComponent implements OnInit {
         },
         {
             'id': 2,
+            'category': 'differe',
             'productName': 'Garden Cart',
             'productCode': 'GDN-0023',
             'releaseDate': 'March 18, 2016',
@@ -33,6 +41,7 @@ export class ProductListComponent implements OnInit {
         },
         {
             'id': 5,
+            'category': 'immediat',
             'productName': 'Hammer',
             'productCode': 'TBX-0048',
             'releaseDate': 'May 21, 2016',
@@ -43,6 +52,7 @@ export class ProductListComponent implements OnInit {
         },
         {
             'id': 8,
+            'category': 'immediat',
             'productName': 'Saw',
             'productCode': 'TBX-0022',
             'releaseDate': 'May 15, 2016',
@@ -53,6 +63,7 @@ export class ProductListComponent implements OnInit {
         },
         {
             'id': 10,
+            'category': 'differe',
             'productName': 'Video Game Controller',
             'productCode': 'GMG-0042',
             'releaseDate': 'October 15, 2015',
@@ -75,8 +86,16 @@ export class ProductListComponent implements OnInit {
 
 }
 
+export type IProductCategory = 'immediat' | 'differe';
+
+export interface IProductListFilter {
+    list: string
+    category: IProductCategory | 'all'
+}
+
 export interface IProduct {
   id: number;
+  category: IProductCategory;
   productName: string;
   productCode: string;
   releaseDate: string;
