@@ -188,7 +188,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 4. Write a public `getProducts` method to access to this products array
 5. [OPTIONAL]: Write a public `getObservableProducts` which return an Observable
 
-#### 09 - Retrieving data Using HTTP
+#### 07 - Retrieving data Using HTTP
 
 *Working based on 08 source code*
 
@@ -203,7 +203,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
     3. `catch` to attach a method to handle errors
 5. Change into `ProductListComponent` the way we retrieve the data from our `ProductService`
 
-## 10 - Navigation and Routing Basics
+## 08 - Navigation and Routing Basics
 
 *Working based on 09 source code*
 
@@ -220,7 +220,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 
 **FROM THIS POINT IT NEEDS TO BE UPDATED!**
 
-## 11 - Navigating and Routing Advanced
+## 09 - Navigating and Routing Advanced
 
 *Working based on 10 source code*
 
@@ -229,7 +229,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 2. Develop the `ProductDetailComponent` to display real product detail information by retrieving the product from our `ProductService`
 3. Implement a Guard to check the validity of given `id`
 
-## 12 - Forms
+## 10 - Forms
 
 *Working based on 11 source code*
 
@@ -249,7 +249,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
     7. Describe your forms using: `ControlGroup`
     8. Add some validators (custom?)
 
-## 13 - Angular Modules
+## 11 - Angular Modules
 
 *Working based on 12 source code*
 
@@ -261,18 +261,18 @@ Following slides:
 4. Create a `ProductRoutingModule` and a `AppRoutingModule` to split down routing configuration
 5. Optional: Create a `CoreComponent` to handle all services once in your application
 
-## 14 - Angular 2 set-up revisited
+## 12 - Angular 2 set-up revisited
 
 No challenge here!
 
-## 15 - Unit Testing w/ Jasmine & Karma
+## 13 - Unit Testing w/ Jasmine & Karma
 
 *Working based on 13 source code*
 
-## 16 - Reactive Programming
+## 14 - Reactive Programming
 
 No challenge here!
 
-## 17 - Data Store with @ngrx/store
+## 15 - Data Store with @ngrx/store
 
 *Working based on 15 source code*
