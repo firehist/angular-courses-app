@@ -193,9 +193,88 @@ Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tre
 4. Write a public `getProducts` method to access to this products array
 5. [OPTIONAL]: Write a public `getObservableProducts` which return an Observable
 
-#### 07 - Retrieving data Using HTTP
+### 07 - Retrieving data Using HTTP
 
 *Working based on 08 source code*
+
+#### Install json-server as fake backend server
+
+1. Instal [`json-server`](https://github.com/typicode/json-server) package
+
+```
+npm install --server json-server
+```
+
+2. Create a folder `server`
+3. Create a file into created folder called `db.json` with following content
+
+```
+{
+    "products": [
+        {
+            "id": 1,
+            "productName": "Leaf Rake",
+            "productCode": "GDN-0011",
+            "releaseDate": "March 19, 2016",
+            "description": "Leaf rake with 48-inch wooden handle.",
+            "price": 19.95,
+            "starRating": 3.2,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+        },
+        {
+            "id": 2,
+            "productName": "Garden Cart",
+            "productCode": "GDN-0023",
+            "releaseDate": "March 18, 2016",
+            "description": "15 gallon capacity rolling garden cart",
+            "price": 32.99,
+            "starRating": 4.2,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+        },
+        {
+            "id": 3,
+            "productName": "Hammer",
+            "productCode": "TBX-0048",
+            "releaseDate": "May 21, 2016",
+            "description": "Curved claw steel hammer",
+            "price": 8.9,
+            "starRating": 4.8,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
+        },
+        {
+            "id": 4,
+            "productName": "Saw",
+            "productCode": "TBX-0022",
+            "releaseDate": "May 15, 2016",
+            "description": "15-inch steel blade hand saw",
+            "price": 11.55,
+            "starRating": 3.7,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
+        },
+        {
+            "id": 5,
+            "productName": "Video Game Controller",
+            "productCode": "GMG-0042",
+            "releaseDate": "October 15, 2015",
+            "description": "Standard two-button video game controller",
+            "price": 35.95,
+            "starRating": 4.6,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+        }
+    ]
+}
+```
+4. Edit the `package.json` file and add into `scripts` section the following line
+
+```
+"api": "json-server --watch ./server/db.json"
+```
+
+5. Then you can run your backend server by type the following command and enjoy http://localhost:3000
+
+```
+npm run api
+```
 
 1. Import the `HttpModule` into the `AppModule` (if not already done)
     1.1 Install the `@angular/http` module
@@ -206,6 +285,13 @@ Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tre
     1. `map` to convert the string result into a JSON Object
     2. `do` to `console.log` the JSON Object
     3. `catch` to attach a method to handle errors
+    4. Imports
+    
+```
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/mergeMap';
+```
+
 5. Change into `ProductListComponent` the way we retrieve the data from our `ProductService`
 
 ## 08 - Navigation and Routing Basics
