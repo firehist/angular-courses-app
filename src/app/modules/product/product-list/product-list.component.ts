@@ -1,5 +1,7 @@
 import { IProduct, ProductService } from './../../../shared/models/product.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-product-list',
@@ -8,24 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  pageTitle: string = 'Product List'
+  pageTitle: string = 'Product List';
   showImage: boolean = true;
-  listFilter: string = '';
-  products: IProduct[];
+  textFilter: string = '';
+  products: Observable<IProduct[]>;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-      console.log('Im ngOnInit 😀');
-      this.productService.getProducts()
-        .subscribe(
-          products => this.products = products,
-          error => console.error(error)
-        )
+    this.products = this.productService.getAll()
+      .map(products => {
+        const emptyTextFilter = this.textFilter === '';
+        return emptyTextFilter ?
+          products :
+          products.filter(product => product.productName.toLowerCase().includes(this.textFilter.toLowerCase()));
+      });
   }
 
   toggleImage() {
       this.showImage = !this.showImage;
+  }
+
+  updateRating(product: IProduct, rating: number) {
+    const newProduct = Object.assign({}, product, {starRating: rating})
+    this.productService.put(newProduct)
+      .subscribe(product => console.log('Save done.'))
   }
 
 }

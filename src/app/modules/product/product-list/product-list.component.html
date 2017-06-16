@@ -8,20 +8,19 @@
         <div class="row">
             <div class="col-md-2">Filter by:</div>
             <div class="col-md-10">
-                <input [(ngModel)]="listFilter" name="listFilter" type="text" placeholder="type to filter" />
+                <input [(ngModel)]="textFilter" name="textFilter" type="text" placeholder="type to filter" />
             </div>
         </div>
-        <div class="row" *ngIf="listFilter">
+        <div class="row" *ngIf="textFilter">
             <div class="col-md-12">
-                <h3>Filtered by: {{ listFilter }} (reversed: {{ listFilter | reverse }} 👌)</h3>
+                <h3>Filtered by: {{ textFilter }} (reversed: {{ textFilter | reverse }} 👌)</h3>
             </div>
         </div>
 
         <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
 
         <div class="table-responsive">
-            <table class="table"
-                   *ngIf="products && products.length">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>
@@ -37,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of (products | productFilter:listFilter)'>
+                    <tr *ngFor='let product of products | async'>
                         <td><img *ngIf="showImage" [src]="product.imageUrl" width="150px" /></td>
                         <td>
                           <a href="javascript:;">
@@ -49,7 +48,7 @@
                         <td>{{ product.price | currency }}</td>
                         <td>
                             <app-star-rating [rating]="product.starRating"
-                                             (ratingClicked)="product.starRating = $event"></app-star-rating>
+                                             (ratingClicked)="updateRating(product, $event)"></app-star-rating>
                             Original value: {{product.starRating}}
                         </td>
                     </tr>
