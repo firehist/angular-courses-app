@@ -161,10 +161,12 @@ Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tre
 
 Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
-1. Develop the `product` pipe and use it into the product-list view.
+1. Develop the `product` pipe and use it into the product-list view (to filter products array).
 2. Use Component lifecycle to `console.log` a message into the `onInit` event
 3. Add specific style for the product-list component
 4. Add pipe to products `*ngFor` (eg: currency, uppercase, etc.)
+
+**BONUS**: Filter products without pipe. And add rating sort and so on.
 
 Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 
