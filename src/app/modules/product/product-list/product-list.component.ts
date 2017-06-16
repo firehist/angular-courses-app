@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
+  pageTitle: string = 'Product List'
   showImage: boolean = true;
   listFilter: string = '';
   products: IProduct[] = [
@@ -64,7 +65,9 @@ export class ProductListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+      console.log('Im ngOnInit 😀');
+  }
 
   toggleImage() {
       this.showImage = !this.showImage;

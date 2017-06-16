@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 import { ProductListComponent } from './modules/product/product-list/product-list.component';
+import { ProductFilterPipe } from './modules/product/product-list/product-filter.pipe';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReversePipe } from './shared/pipes/reverse.pipe';
     AppComponent,
     HeaderComponent,
     ProductListComponent,
-    ReversePipe
+    ReversePipe,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,
