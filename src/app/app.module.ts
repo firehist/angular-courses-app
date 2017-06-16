@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 import { ProductListComponent } from './modules/product/product-list/product-list.component';
+import { ReversePipe } from './shared/pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductListComponent
+    ProductListComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
