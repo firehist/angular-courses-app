@@ -147,23 +147,26 @@ Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tre
 
 ### 03 - Data Binding & Pipes
 
-*Working based on 04 source code*
+Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
 1. Display image as `<img src...` into the table with a *property binding* to `product.imageUrl` 
 2. Add a button to show/hide all images on the page (you can handle click by using `<button (click)="myPublicMethod()"></button>`)
 The text should be adapted to the current stage: `Show the images` or `Hide the images`
 3. Set-up using banana in the box `[()]` the `ngModel` on the filter input text (two-way binding)
-4. Create a custom Pipe to reverse a word !
+4. Create a custom Pipe to reverse a word & use it to display the filter text value.
+
+Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
 ### 04 - More on components
 
-*Working based on 05 source code*
+Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
 1. Develop the `product` pipe and use it into the product-list view.
 2. Use Component lifecycle to `console.log` a message into the `onInit` event
 3. Add specific style for the product-list component
 4. Add pipe to products `*ngFor` (eg: currency, uppercase, etc.)
-5. Add your custom Pipe `reverse`
+
+Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 
 ### 05 - Building Nested Component
 
