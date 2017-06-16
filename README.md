@@ -4,7 +4,22 @@ List all our challenges for this Angular course
 
 Source code at each step is available through branches ====> [HERE](https://github.com/firehist/angular-courses-app/branches/yours)
 
-## 00 - Introduction
+| Step | Statement                | Source code                                                          |
+|------|--------------------------|----------------------------------------------------------------------|
+| 00   |   [HERE](#step-00)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-00) |
+| 01   |   [HERE](#step-01)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-01) |
+| 02   |   [HERE](#step-02)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-02) |
+| 03   |   [HERE](#step-03)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-03) |
+| 04   |   [HERE](#step-04)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-04) |
+| 04 B |   [HERE](#step-04-bonus) | [HERE](https://github.com/firehist/angular-courses-app/tree/step-04-bonus) |
+| 05   |   [HERE](#step-05)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-05) |
+| 06   |   [HERE](#step-06)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-06) |
+| 07   |   [HERE](#step-07)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-07) |
+| 07 B |   [HERE](#step-07-bonus) | [HERE](https://github.com/firehist/angular-courses-app/tree/step-07-bonus) |
+| 08   |   [HERE](#step-08)       |  |
+| 09   |   [HERE](#step-09)       |  |
+
+## 00 - Introduction {#step-00}
 
 [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
@@ -42,7 +57,7 @@ ng serve
 
 Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
-## 01 - Introduction to Components
+## 01 - Introduction to Components {#step-01}
 
 Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
@@ -61,7 +76,7 @@ $ ng generate component header
 
 Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
 
-### 02 - Templates, Interpolation & Directives
+### 02 - Templates, Interpolation & Directives {#step-02}
 
 Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
@@ -147,7 +162,7 @@ ng generate component product/product-list
 
 Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
-### 03 - Data Binding & Pipes
+### 03 - Data Binding & Pipes {#step-03}
 
 Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
@@ -159,7 +174,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 
 Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
-### 04 - More on components
+### 04 - More on components {#step-04}
 
 Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
@@ -170,7 +185,9 @@ Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
 Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 
-**BONUS**: Filter products without pipe. And add rating sort and so on.
+#### BONUS {#step-04-bonus}
+
+Filter products without pipe. And add rating sort and so on.
 
 Proposed solution: [step-04-bonus](https://github.com/firehist/angular-courses-app/tree/step-04-bonus)
 
