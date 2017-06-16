@@ -17,7 +17,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
       console.log('Im ngOnInit 😀');
-      this.products = this.productService.getProducts()
+      this.productService.getProducts()
+        .subscribe(
+          products => this.products = products,
+          error => console.error(error)
+        )
   }
 
   toggleImage() {
