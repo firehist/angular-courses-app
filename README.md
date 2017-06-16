@@ -166,13 +166,15 @@ Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 3. Add specific style for the product-list component
 4. Add pipe to products `*ngFor` (eg: currency, uppercase, etc.)
 
+Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+
 **BONUS**: Filter products without pipe. And add rating sort and so on.
 
-Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+Proposed solution: [step-04-bonus](https://github.com/firehist/angular-courses-app/tree/step-04-bonus)
 
 ### 05 - Building Nested Component
 
-*Working based on 06 source code*
+Based on [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 
 1. Create a `starComponent` which display the rating with stars
 2. Use this component into our `productListComponent` and place it next to existing `product.starRating`
@@ -180,9 +182,11 @@ Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tre
 4. Set-up `ratingClicked` output into `starComponent`
 5. Listen `ratingClicked` event from `ProductListComponent`
 
+Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
+
 ### 06 - Services and dependency injection
 
-*Working based on 07 source code*
+Based on [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
 
 1. Create a new angular service called `ProductService`
 
@@ -191,11 +195,14 @@ Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tre
 2. Ensure that it will be declared at our appModule level
 3. Move the IProduct interface and the products array from our `productListComponent` to this new service
 4. Write a public `getProducts` method to access to this products array
-5. [OPTIONAL]: Write a public `getObservableProducts` which return an Observable
+
+Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
+
+**BONUS**: Start to work with Observable
 
 ### 07 - Retrieving data Using HTTP
 
-*Working based on 08 source code*
+Based on [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
 
 #### Install json-server as fake backend server
 
@@ -276,12 +283,17 @@ npm install --server json-server
 npm run api
 ```
 
+#### Just Do It!
+
 1. Import the `HttpModule` into the `AppModule` (if not already done)
-    1.1 Install the `@angular/http` module
-    1.2 Import the `HttpModule` into our `AppModule`
+
+    1. Install the `@angular/http` module
+    2. Import the `HttpModule` into our `AppModule`
+
 2. Inject `Http` into our `ProductService`
 3. Update the `getProducts()` method to make a `get` call to our API Service `http://localhost:3000/products`
 4. Use `RxJS` methods:
+
     1. `map` to convert the string result into a JSON Object
     2. `do` to `console.log` the JSON Object
     3. `catch` to attach a method to handle errors
@@ -294,20 +306,30 @@ import 'rxjs/add/operator/mergeMap';
 
 5. Change into `ProductListComponent` the way we retrieve the data from our `ProductService`
 
-## 08 - Navigation and Routing Basics
+Proposed solution: [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
 
-*Working based on 09 source code*
+**BONUS**: Do it with BehaviorSubject and Observables
+
+Proposed solution: [step-07-bonus](https://github.com/firehist/angular-courses-app/tree/step-07-bonus)
+
+### 08 - Navigation and Routing Basics
+
+Based on [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
 
 1. Create a simple `ProductDetailComponent` and a `WelcomeComponent` with a basic template 
 2. Import the `RouterModule` into the `AppModule` (if not already there)
     1. Install the `@angular/router` module
     2. Import the `RouterModule` into our `AppModule`
-    3. Use the `RouterModule.forRoot([])` syntax to describe the application's routes (Note that `RouterModule.forChild([]) is used in angular sub-module of our application)
+    3. Use the `RouterModule.forRoot([])` syntax to describe the application's routes (Note that `RouterModule.forChild([])` is used in angular sub-module of our application)
 3. Add the `<router-outlet></router-outlet>` instead of our `app-product-list` directive into our `AppRootComponent`
 4. Add a menu to navigate through Home and Product List pages using the directive `[routerLink]` directive
 5. Add to the `ProductDetailComponent` two link:
   - One to go back to `/products` route
   - an other to go to the next product detail page
+
+
+
+
 
 **FROM THIS POINT IT NEEDS TO BE UPDATED!**
 
