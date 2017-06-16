@@ -1,0 +1,6 @@
+.orange {
+    color: orange;
+}
+.glyphicon.glyphicon-star:hover {
+    cursor: pointer;
+}

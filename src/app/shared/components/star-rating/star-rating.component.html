@@ -1,0 +1,6 @@
+<p>
+  <span *ngFor="let rate of [1,2,3,4,5]"
+        [class.orange]="rate <= rating"
+        (click)="rateIt(rate)"
+        class="glyphicon glyphicon-star"></span>
+</p>

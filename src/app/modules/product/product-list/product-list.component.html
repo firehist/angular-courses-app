@@ -47,7 +47,11 @@
                         <td>{{ product.productCode | uppercase }}</td>
                         <td>{{ product.releaseDate | date }}</td>
                         <td>{{ product.price | currency }}</td>
-                        <td>{{ product.starRating}}</td>
+                        <td>
+                            <app-star-rating [rating]="product.starRating"
+                                             (ratingClicked)="product.starRating = $event"></app-star-rating>
+                            Original value: {{product.starRating}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
