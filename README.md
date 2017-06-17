@@ -6,8 +6,8 @@ Source code at each step is available through branches ====> [HERE](https://gith
 
 | Step | Statement                | Source code                                                          |
 |------|--------------------------|----------------------------------------------------------------------|
-| 00   |   [HERE](#step-00)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-00) |
-| 01   |   [HERE](#step-01)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-01) |
+| 00   |   [HERE](#00---introduction)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-00) |
+| 01   |   [HERE](#01---introduction-to-components)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-01) |
 | 02   |   [HERE](#step-02)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-02) |
 | 03   |   [HERE](#step-03)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-03) |
 | 04   |   [HERE](#step-04)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-04) |
@@ -19,11 +19,10 @@ Source code at each step is available through branches ====> [HERE](https://gith
 | 08   |   [HERE](#step-08)       |  |
 | 09   |   [HERE](#step-09)       |  |
 
-## 00 - Introduction {#step-00}
+## 00 - Introduction
 
-[step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
-
-Not really a challenge but it's an howTo bootstrap the app.
+<details>
+<summary>Not really a challenge but it's an howTo bootstrap the app.</summary>
 
 ### Install NVM (if wanted
 
@@ -56,6 +55,8 @@ ng serve
 ```
 
 Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+
+</details>
 
 ## 01 - Introduction to Components {#step-01}
 
