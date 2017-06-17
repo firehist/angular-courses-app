@@ -21,8 +21,10 @@ Source code at each step is available through branches ====> [HERE](https://gith
 
 ## 00 - Introduction
 
+Not really a challenge but it's an howTo bootstrap the app.
+
 <details>
-<summary>Not really a challenge but it's an howTo bootstrap the app.</summary>
+<summary>Click here to expand steps</summary>
 
 ### Install NVM (if wanted
 
@@ -58,16 +60,21 @@ Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tre
 
 </details>
 
-## 01 - Introduction to Components {#step-01}
-
-Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+## 01 - Introduction to Components
 
 **Main idea: use ng generate and be familiar with basic component**
 
+<details>
+<summary>Click here to expand steps</summary>
+
+Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+
 1. Create a component called `header`
+
 ```
 $ ng generate component header
 ```
+
 2. Add the selector element `<app-header></<app-header>` into the main HTML `app.component.html`
 3. Play with template to see what's going on
   a. Add [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md) or [angular2-materialize](https://github.com/InfomediaLtd/angular2-materialize#installing--configuring-angular2-materialize-in-projects-created-with-the-angular-cli)
@@ -77,11 +84,16 @@ $ ng generate component header
 
 Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
 
+</details>
+
 ### 02 - Templates, Interpolation & Directives {#step-02}
 
-Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+**Create a product list view by using *ngIf & *ngFor directives**
 
-**Main idea: create a product list view by using *ngIf & *ngFor directives**
+<details>
+<summary>Click here to expand steps</summary>
+
+Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 1. Create a component called `product-list`
 
@@ -163,7 +175,14 @@ ng generate component product/product-list
 
 Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
+</details>
+
 ### 03 - Data Binding & Pipes {#step-03}
+
+**Use property binding, event binding and two-way binding by using `[attr]`, `(event)` and `[(ngModel)]`**
+
+<details>
+<summary>Click here to expand steps</summary>
 
 Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
