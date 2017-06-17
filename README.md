@@ -4,21 +4,6 @@ List all our challenges for this Angular course
 
 Source code at each step is available through branches ====> [HERE](https://github.com/firehist/angular-courses-app/branches/yours)
 
-| Step | Statement                | Source code                                                          |
-|------|--------------------------|----------------------------------------------------------------------|
-| 00   |   [HERE](#00---introduction)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-00) |
-| 01   |   [HERE](#01---introduction-to-components)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-01) |
-| 02   |   [HERE](#step-02)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-02) |
-| 03   |   [HERE](#step-03)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-03) |
-| 04   |   [HERE](#step-04)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-04) |
-| 04 B |   [HERE](#step-04-bonus) | [HERE](https://github.com/firehist/angular-courses-app/tree/step-04-bonus) |
-| 05   |   [HERE](#step-05)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-05) |
-| 06   |   [HERE](#step-06)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-06) |
-| 07   |   [HERE](#step-07)       | [HERE](https://github.com/firehist/angular-courses-app/tree/step-07) |
-| 07 B |   [HERE](#step-07-bonus) | [HERE](https://github.com/firehist/angular-courses-app/tree/step-07-bonus) |
-| 08   |   [HERE](#step-08)       |  |
-| 09   |   [HERE](#step-09)       |  |
-
 ## 00 - Introduction
 
 Not really a challenge but it's an howTo bootstrap the app.
@@ -56,18 +41,19 @@ cd myProjectName
 ng serve
 ```
 
-Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
-
 </details>
+
+Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 ## 01 - Introduction to Components
 
 **Main idea: use ng generate and be familiar with basic component**
 
+Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
+
 <details>
 <summary>Click here to expand steps</summary>
-
-Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 1. Create a component called `header`
 
@@ -82,18 +68,17 @@ $ ng generate component header
   b. Add code between `<app-header>` and `</<app-header>`
   c. be genious :D
 
-Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
-
 </details>
 
-### 02 - Templates, Interpolation & Directives {#step-02}
+### 02 - Templates, Interpolation & Directives
 
 **Create a product list view by using *ngIf & *ngFor directives**
 
+Based on [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
+Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
+
 <details>
 <summary>Click here to expand steps</summary>
-
-Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 1. Create a component called `product-list`
 
@@ -173,18 +158,17 @@ ng generate component product/product-list
   
 5. Bonus: Create a ProductListDetail component to replace HTML code of `*ngFor`
 
-Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
-
 </details>
 
-### 03 - Data Binding & Pipes {#step-03}
+### 03 - Data Binding & Pipes
 
 **Use property binding, event binding and two-way binding by using `[attr]`, `(event)` and `[(ngModel)]`**
 
+Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
+Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
+
 <details>
 <summary>Click here to expand steps</summary>
-
-Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
 1. Display image as `<img src...` into the table with a *property binding* to `product.imageUrl` 
 2. Add a button to show/hide all images on the page (you can handle click by using `<button (click)="myPublicMethod()"></button>`)
@@ -192,28 +176,45 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 3. Set-up using banana in the box `[()]` the `ngModel` on the filter input text (two-way binding)
 4. Create a custom Pipe to reverse a word & use it to display the filter text value.
 
-Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
+</details>
 
-### 04 - More on components {#step-04}
+### 04 - More on components
+
+**Work around component lifecycle**
 
 Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
+Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+
+<details>
+<summary>Click here to expand steps</summary>
 
 1. Develop the `product` pipe and use it into the product-list view (to filter products array).
 2. Use Component lifecycle to `console.log` a message into the `onInit` event
 3. Add specific style for the product-list component
 4. Add pipe to products `*ngFor` (eg: currency, uppercase, etc.)
 
-Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+</details>
 
-#### BONUS {#step-04-bonus}
-
-Filter products without pipe. And add rating sort and so on.
+#### BONUS
 
 Proposed solution: [step-04-bonus](https://github.com/firehist/angular-courses-app/tree/step-04-bonus)
 
+<details>
+<summary>Click here to expand bonus steps</summary>
+
+Filter products without pipe. And add rating sort and so on.
+
+</details>
+
 ### 05 - Building Nested Component
 
+**Create a star component**
+
 Based on [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
+
+<details>
+<summary>Click here to expand steps</summary>
 
 1. Create a `starComponent` which display the rating with stars
 2. Use this component into our `productListComponent` and place it next to existing `product.starRating`
@@ -221,11 +222,15 @@ Based on [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 4. Set-up `ratingClicked` output into `starComponent`
 5. Listen `ratingClicked` event from `ProductListComponent`
 
-Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
+</details>
 
 ### 06 - Services and dependency injection
 
 Based on [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
+Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
+
+<details>
+<summary>Click here to expand steps</summary>
 
 1. Create a new angular service called `ProductService`
 
@@ -235,13 +240,19 @@ Based on [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
 3. Move the IProduct interface and the products array from our `productListComponent` to this new service
 4. Write a public `getProducts` method to access to this products array
 
-Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
+</details>
 
 **BONUS**: Start to work with Observable
 
 ### 07 - Retrieving data Using HTTP
 
+**Move products into a dedicated service**
+
 Based on [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
+Proposed solution: [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
+
+<details>
+<summary>Click here to expand steps</summary>
 
 #### Install json-server as fake backend server
 
@@ -345,15 +356,21 @@ import 'rxjs/add/operator/mergeMap';
 
 5. Change into `ProductListComponent` the way we retrieve the data from our `ProductService`
 
-Proposed solution: [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
+</details>
 
-**BONUS**: Do it with BehaviorSubject and Observables
+#### BONUS: Do it with BehaviorSubject and Observables
 
 Proposed solution: [step-07-bonus](https://github.com/firehist/angular-courses-app/tree/step-07-bonus)
 
 ### 08 - Navigation and Routing Basics
 
+**Set-up routes to navigate across the application**
+
 Based on [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
+Proposed solution: [step-08](https://github.com/firehist/angular-courses-app/tree/step-08)
+
+<details>
+<summary>Click here to expand steps</summary>
 
 1. Create a simple `ProductDetailComponent` and a `WelcomeComponent` with a basic template 
 2. Import the `RouterModule` into the `AppModule` (if not already there)
@@ -366,7 +383,7 @@ Based on [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
   - One to go back to `/products` route
   - an other to go to the next product detail page
 
-
+</details>
 
 
 
