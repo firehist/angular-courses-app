@@ -6,7 +6,7 @@ Source code at each step is available through branches ====> [HERE](https://gith
 
 ## 00 - Introduction
 
-Not really a challenge but it's an howTo bootstrap the app.
+Not really a challenge but it's an 'How To' bootstrap the app.
 
 <details>
 <summary>Click here to expand steps</summary>
@@ -43,6 +43,7 @@ ng serve
 
 </details>
 
+
 Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
 ## 01 - Introduction to Components
@@ -50,6 +51,7 @@ Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tre
 **Main idea: use ng generate and be familiar with basic component**
 
 Based on [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
+
 Proposed solution: [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
 
 <details>
@@ -75,6 +77,7 @@ $ ng generate component header
 **Create a product list view by using *ngIf & *ngFor directives**
 
 Based on [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
+
 Proposed solution: [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
 
 <details>
@@ -165,6 +168,7 @@ ng generate component product/product-list
 **Use property binding, event binding and two-way binding by using `[attr]`, `(event)` and `[(ngModel)]`**
 
 Based on [step-02](https://github.com/firehist/angular-courses-app/tree/step-02)
+
 Proposed solution: [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
 
 <details>
@@ -183,6 +187,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 **Work around component lifecycle**
 
 Based on [step-03](https://github.com/firehist/angular-courses-app/tree/step-03)
+
 Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
 
 <details>
@@ -211,6 +216,7 @@ Filter products without pipe. And add rating sort and so on.
 **Create a star component**
 
 Based on [step-04](https://github.com/firehist/angular-courses-app/tree/step-04)
+
 Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
 
 <details>
@@ -227,6 +233,7 @@ Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tre
 ### 06 - Services and dependency injection
 
 Based on [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
+
 Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
 
 <details>
@@ -249,6 +256,7 @@ Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tre
 **Move products into a dedicated service**
 
 Based on [step-06](https://github.com/firehist/angular-courses-app/tree/step-06)
+
 Proposed solution: [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
 
 <details>
@@ -364,9 +372,10 @@ Proposed solution: [step-07-bonus](https://github.com/firehist/angular-courses-a
 
 ### 08 - Navigation and Routing Basics
 
-**Set-up routes to navigate across the application**
+**Set-up basic routes to navigate across the application**
 
 Based on [step-07](https://github.com/firehist/angular-courses-app/tree/step-07)
+
 Proposed solution: [step-08](https://github.com/firehist/angular-courses-app/tree/step-08)
 
 <details>
@@ -384,8 +393,6 @@ Proposed solution: [step-08](https://github.com/firehist/angular-courses-app/tre
   - an other to go to the next product detail page
 
 </details>
-
-
 
 **FROM THIS POINT IT NEEDS TO BE UPDATED!**
 
