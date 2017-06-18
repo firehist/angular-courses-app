@@ -39,7 +39,7 @@
                     <tr *ngFor='let product of (products | async | productFilter:listFilter)'>
                         <td><img *ngIf="showImage" [src]="product.imageUrl" width="150px" /></td>
                         <td>
-                          <a href="javascript:;">
+                          <a [routerLink]="[product.id]">
                             {{ product.productName }}
                           </a>
                         </td>

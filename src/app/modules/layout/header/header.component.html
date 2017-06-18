@@ -2,8 +2,12 @@
     <div class="container-fluid">
         <a class="navbar-brand">{{title}}</a>
         <ul class="nav navbar-nav">
-            <li><a href="javascript:;">Home</a></li>
-            <li><a href="javascript:;">Product List</a></li>
+            <li routerLinkActive="active">
+                <a routerLink="/welcome">Home</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="products">Product List</a>
+            </li>
         </ul>
     </div>
 </nav>
