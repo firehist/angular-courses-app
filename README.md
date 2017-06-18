@@ -381,16 +381,55 @@ Proposed solution: [step-08](https://github.com/firehist/angular-courses-app/tre
 <details>
 <summary>Click here to expand steps</summary>
 
-1. Create a simple `ProductDetailComponent` and a `WelcomeComponent` with a basic template 
-2. Import the `RouterModule` into the `AppModule` (if not already there)
-    1. Install the `@angular/router` module
-    2. Import the `RouterModule` into our `AppModule`
-    3. Use the `RouterModule.forRoot([])` syntax to describe the application's routes (Note that `RouterModule.forChild([])` is used in angular sub-module of our application)
-3. Add the `<router-outlet></router-outlet>` instead of our `app-product-list` directive into our `AppRootComponent`
-4. Add a menu to navigate through Home and Product List pages using the directive `[routerLink]` directive
-5. Add to the `ProductDetailComponent` two link:
-  - One to go back to `/products` route
-  - an other to go to the next product detail page
+We'll create 3 main routes: `/welcome`, `/products` and `/products/:id`.
+
+1. Import the `RouterModule` into the `AppModule` (if not already there)
+
+    - Install the `@angular/router` module
+
+    ```
+    $ npm install --save @angular/router
+    ```
+
+    - Import the `RouterModule` into our `AppModule` from installed package
+    - Use the `RouterModule.forRoot([])` syntax to describe the application's routes (Note that `RouterModule.forChild([])` is used in angular sub-module of our application to avoid colision)
+
+2. Create a basic `ProductDetailComponent` and a `WelcomeComponent` with angular cli
+
+```
+$ ng generate component modules/welcome
+$ ng generate component modules/product/product --flat=true
+$ ng generate component modules/product/product-detail
+```
+
+3. Create manually a ts file `./src/app/app.routes.ts` to centralize application routes and set-up our 3 routes: `/welcome`, `/products` and `/products/:id`. In order to organize routes, split products routes into a separated file `./.src/app/modules/product/product.routes.ts` with the same syntax.
+
+```
+import { Routes } from '@angular/router';
+
+export const APP_ROUTES: Routes = [
+    // Routes
+]
+```
+
+4. Add the `<router-outlet></router-outlet>` directive into our `app.component.html` and `modules/product/product.component.html` to place views
+5. Replace `RouterModule.forRoot([])` into `app.module.ts` to use the routes
+
+```
+import { APP_ROUTES } from './app.routes.ts`
+
+// Some code ...
+
+RouterModule.forRoot(APP_ROUTES)
+```
+
+6. Replace links into the top bar by using the directive `routerLink` directive and `routerLinkActive` to set style on current active link!
+7. Replace links into our `ProductListComponent` in order to go to the detail page
+8. Add a back button to the `ProductDetailComponent`.
+
+```
+<button routerLink="../">Back to products</button>
+```
 
 </details>
 
