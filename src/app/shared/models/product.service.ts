@@ -8,11 +8,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ProductService {
 
-  private _products: Array<IProduct>;
-
   constructor(private _httpService: Http) { }
 
-  getProducts(): Observable<IProduct[]> {
+  getProducts(): Observable<Array<IProduct>> {
     return this._httpService.get('http://localhost:3000/products')
         .do((res: Response) => console.log(`GET query to '${res.url}': ${res.status}`))
         .map(res => res.json())

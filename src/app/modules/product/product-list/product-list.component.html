@@ -20,8 +20,7 @@
         <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
 
         <div class="table-responsive">
-            <table class="table"
-                   *ngIf="products && products.length">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>
@@ -37,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of (products | productFilter:listFilter)'>
+                    <tr *ngFor='let product of (products | async | productFilter:listFilter)'>
                         <td><img *ngIf="showImage" [src]="product.imageUrl" width="150px" /></td>
                         <td>
                           <a href="javascript:;">
