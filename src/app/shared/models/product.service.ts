@@ -29,18 +29,18 @@ export class ProductService {
         .catch(this._handleError('Product was not found'));
   }
 
+  getProduct(id: number): Observable<IProduct> {
+    return this._httpService.get(`http://localhost:3000/products/${id}`)
+        .do((res: Response) => console.log(`GET query to '${res.url}': ${res.status}`))
+        .map(res => res.json())
+        .catch(this._handleError(`Product #${id} was not found`));
+  }
+
   private _handleError(errorMessage: string) {
     return (error: any): Observable<Error> => {
       console.error(errorMessage, error);
       return Observable.throw(new Error(error));
     };
-  }
-
-  getProduct(id: number): Observable<IProduct> {
-    return this._httpService.get(`http://localhost:3000/products/${id}`)
-        .do((res: Response) => console.log(`GET query to '${res.url}': ${res.status}`))
-        .map(res => res.json())
-        .catch(error => Observable.throw('Catch an error!', error));
   }
 
 }
