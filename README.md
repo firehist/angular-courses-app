@@ -46,7 +46,7 @@ ng serve
 
 Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
-## 01 - Introduction to Components
+## 02 - Introduction to Components
 
 **Main idea: use ng generate and be familiar with basic component**
 
@@ -72,9 +72,9 @@ $ ng generate component header
 
 </details>
 
-### 02 - Templates, Interpolation & Directives
+## 02 - Templates, Interpolation & Directives
 
-**Create a product list view by using *ngIf & *ngFor directives**
+**Create a product list view by using ngIf & ngFor directives**
 
 Based on [step-01](https://github.com/firehist/angular-courses-app/tree/step-01)
 
@@ -163,7 +163,7 @@ ng generate component product/product-list
 
 </details>
 
-### 03 - Data Binding & Pipes
+## 03 - Data Binding & Pipes
 
 **Use property binding, event binding and two-way binding by using `[attr]`, `(event)` and `[(ngModel)]`**
 
@@ -182,7 +182,7 @@ The text should be adapted to the current stage: `Show the images` or `Hide the 
 
 </details>
 
-### 04 - More on components
+## 04 - More on components
 
 **Work around component lifecycle**
 
@@ -200,7 +200,7 @@ Proposed solution: [step-04](https://github.com/firehist/angular-courses-app/tre
 
 </details>
 
-#### BONUS
+### BONUS
 
 Proposed solution: [step-04-bonus](https://github.com/firehist/angular-courses-app/tree/step-04-bonus)
 
@@ -211,7 +211,7 @@ Filter products without pipe. And add rating sort and so on.
 
 </details>
 
-### 05 - Building Nested Component
+## 05 - Building Nested Component
 
 **Create a star component**
 
@@ -230,7 +230,7 @@ Proposed solution: [step-05](https://github.com/firehist/angular-courses-app/tre
 
 </details>
 
-### 06 - Services and dependency injection
+## 06 - Services and dependency injection
 
 Based on [step-05](https://github.com/firehist/angular-courses-app/tree/step-05)
 
@@ -251,7 +251,7 @@ Proposed solution: [step-06](https://github.com/firehist/angular-courses-app/tre
 
 **BONUS**: Start to work with Observable
 
-### 07 - Retrieving data Using HTTP
+## 07 - Retrieving data Using HTTP
 
 **Move products into a dedicated service**
 
@@ -262,7 +262,7 @@ Proposed solution: [step-07](https://github.com/firehist/angular-courses-app/tre
 <details>
 <summary>Click here to expand steps</summary>
 
-#### Install json-server as fake backend server
+### Install json-server as fake backend server
 
 1. Instal [`json-server`](https://github.com/typicode/json-server) package
 
@@ -433,16 +433,28 @@ RouterModule.forRoot(APP_ROUTES)
 
 </details>
 
-**FROM THIS POINT IT NEEDS TO BE UPDATED!**
-
 ## 09 - Navigating and Routing Advanced
 
-*Working based on 10 source code*
+**Enhance our routes to read parameters, set-up guard and resolve data**
 
-1. Read `id` parameter from url in `ProductDetailComponent` using `ActivatedRoute`
-2. Develop a method `getProductById(id:number)` in our `ProductService`
-2. Develop the `ProductDetailComponent` to display real product detail information by retrieving the product from our `ProductService`
-3. Implement a Guard to check the validity of given `id`
+Based on [step-08](https://github.com/firehist/angular-courses-app/tree/step-08)
+
+Proposed solution: [step-09](https://github.com/firehist/angular-courses-app/tree/step-09)
+
+<details>
+<summary>Click here to expand steps</summary>
+
+1. Read the `id` parameter from the URL in `ProductDetailComponent` to display it in the view
+2. Set-up a link to go to the next product id (don't take care if next id really exist through our collection)
+3. Integrate a product card with detail of selected product into the `ProductDetailComponent` 
+4. Use a resolve to get product information
+5. Implement a guard to check the validity of given `id`
+
+</details>
+
+
+** Need to be reworked **
+
 
 ## 10 - Forms
 
