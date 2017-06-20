@@ -444,37 +444,164 @@ Proposed solution: [step-09](https://github.com/firehist/angular-courses-app/tre
 <details>
 <summary>Click here to expand steps</summary>
 
-1. Read the `id` parameter from the URL in `ProductDetailComponent` to display it in the view
-2. Set-up a link to go to the next product id (don't take care if next id really exist through our collection)
-3. Integrate a product card with detail of selected product into the `ProductDetailComponent` 
-4. Use a resolve to get product information
-5. Implement a guard to check the validity of given `id`
+1. Write a `getProduct(id: number): Observable<IProduct>` method into our `ProductService`
+
+- This method looks like the existing `getProducts(): Observable<Array<IProduct>>` method
+- Call the following URL instead: `http://localhost:3000/product/ID` where `ID` is the requested product id
+
+2. Set-up a **resolve** called `product` in order to get the product object (`IProduct`)  into our `ProductDetailComponent`
+
+- Create a new file injectable called `product.resolve.ts`
+
+```
+$ ng generate service shared/resolves/product-resolve
+```
+
+- Refactor the class name from `ProductResolveService` to `ProductResolve` & the filename from `product-resolve.service.ts` into `product.resolve.ts`
+- Import the `ProductResolve` class into the `app.module.ts` file and add it into the `providers: []` array
+- The class must implement the interface `Resolve<T>` imported from the `@angular/router` module
+- This interface force you to write a method
+
+```
+class ProductResolve implements Resolve<T> {
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<T> | Promise<T> | T {
+        // Your code can return an Observable, a Promise or T (T is a generic type, can be number, string, IProduct, etc.)
+        // Here T is IProduct
+    }
+
+}
+```
+
+- Now, we'll write the body of this function
+
+    - Retrieve id from URL params
+    - Return the `getProduct(id)` from our `ProductService` to get our `Observable<IProduct>`
+
+3. Add the resolve to the wanted route, here into the `product.routes.ts`
+
+```
+{ path: ':id', component: ProductDetailComponent, resolve: {
+    product: ProductResolve
+} }
+```
+
+*Here you should see when navigating to this route, a request sent to your server!*
+
+4. Retrieve the `Observable<IProduct>` into our `ProductDetailComponent`
+
+- Import & Inject the `ActivatedRoute` from `@angular/router`
+
+```
+import { ActivatedRoute } from '@angular/router';
+// …
+class ProductDetailComponent implements OnInit {
+    constructor(private _route: ActivatedRoute) {} 
+}
+```
+
+- Retrieve the `data` observable from `ActivatedRoute` and assign it to a class variable called `product$`
+
+```
+this.product$ = this._route.data.map(data => data.product)
+```
+
+5. Design the `ProductDetailComponent` HTML in order to display our `product$` information.  Use the pipe `async` into the `*ngIf`
+
+```
+<div *ngIf="product$ | async; let product; else noProductTemplate">
+    ID: {{ product.id }}
+</div>
+<ng-template #noProductTemplate>
+    <h4>No product found!</h4>
+</ng-template>
+```
+
+6. Set-up into the HTML a button to go to the next product id (`product.id++`)
+
+7. Set-up a **guard** to check if the given id is a number
+
+- Generate a guard by using ng cli
+
+```
+$ ng generate guard --module app.module shared/guards/product-id
+// --module will provide automatically the created file into our app.module.ts
+```
+
+- Update the code in order to check that the id param is well a number. Display a `console.error` else and redirect to the product list route
+
+```
+canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    const id = Number(next.params.id)
+    if (isNaN(id) || id > 0) {
+        // console.error & redirect
+    }
+    return true
+}
+```
+
+- Add the guard to the wanted route, here into the `product.routes.ts`
+
+```
+{ path: ':id', component: ProductDetailComponent, resolve: {
+    product: ProductResolve
+}, canActivate: [ProductIdGuard] }
+```
+
+Here we go! 👌
+
+**Resolve**: It prepares our data for the targeted component
+**Guard**: It active/deactive a route based on custom check (here that the id is a number)
 
 </details>
 
-
-** Need to be reworked **
-
-
 ## 10 - Forms
 
-*Working based on 11 source code*
+**Edit/Create a product by using forms**
 
-1. Create a new component called `ProductEditComponent` with a basic edit form of a product
-2. Use `template driven form`
-    1. Use `[(ngModel)]` on each input to create a two-way binding
-    2. Add the hash operator to retrieve the current `ngModel` state (eg. `#nameInput`)
-    3. Display an error box below based on `nameInput.valid`
-    4. Implement a `(ngSubmit)` method to execute a function when user submit
-3. Use `model driven form`
-    1. Update the form to use `[ngFormModel]=formName` on the `<form>` DOM node
-    2. Changes all `[(ngModel)]` into a `ngControl="inputName"`
-    3. Import `ReactiveFormsModule` in your current angular module
-    4. Import `FormBuilder` and `Validators` from `@angular/forms` into your component
-    5. Inject into the component the `FormBuilder`
-    6. Create a public `formName` variable by using `FormBuilder`
-    7. Describe your forms using: `ControlGroup`
-    8. Add some validators (custom?)
+Based on [step-09](https://github.com/firehist/angular-courses-app/tree/step-09)
+
+Proposed solution: [step-10](https://github.com/firehist/angular-courses-app/tree/step-10)
+
+<details>
+<summary>Click here to expand steps</summary>
+
+1. Import @angular modules `FormsModule` & `ReactiveFormsModule`
+2. Display a form to feed all field about product in HTML (in `ProductDetailComponent`)
+
+    - You can use ngIf/else syntax
+
+```
+<div *ngIf="myTest; else toto">
+  // Displayed if myTest
+</div>
+<ng-template #toto>
+  // Displayed else
+</ng-template>
+```
+
+4. Create the forms in `model driver` way into the component
+
+- Import useful artefact from `@angular/forms`: `FormBuilder`, `FormGroup`, `Validators`
+- Inject the `FormBuilder`
+- Design the form into the constructor
+
+5. Create and connect the HTML form to the JS FormGroup by using these directives: `FormGroup`, `FormControlName`
+6. Handle error message into the view by using the forms
+7. Create a custom validator and use it in the view. For example a Code validator.
+8. Write the submit method in order to save the product
+
+</details>
+
+#### BONUS:
+
+- Make the app-star-component compatible with Forms
+- Implement a datepicker for the date
+- Export the form into a separated component in order to have a Create button :)
+
+
 
 ## 11 - Angular Modules
 
