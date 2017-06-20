@@ -9,3 +9,13 @@ export const APP_ROUTES: Routes = [
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     { path: '**', redirectTo: '/welcome' }
 ]
+
+/**
+ Following line
+ { path: 'products', component: ProductComponent, children: PRODUCT_ROUTES },
+ Can be write as
+ { path: 'products', component: ProductComponent, children: [
+    { path: ':id', component: ProductDetailComponent },
+    { path: '', component: ProductListComponent }
+ ]},
+ */
