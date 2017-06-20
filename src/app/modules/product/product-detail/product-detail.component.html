@@ -1,41 +1,43 @@
 <!-- Using Angular 4.x.x ngIf else syntax -->
 <div class="panel panel-primary" *ngIf="product$ | async; let product; else noProduct">
     <div class="panel-heading" style="font-size:large">
-        {{pageTitle + ": " + product.productName}}
+        <div class="pull-right">
+            <button (click)="toggleMode()" class="btn btn-default">{{ isEdit() ? 'Cancel' : 'Edit' }}</button>
+        </div>
+        <h4>Detail of {{ product.productName}}</h4>
     </div>
 
     <div class="panel-body">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row" *ngIf="!isEdit(); else myEditForm">
+            <div class="col-sm-6">
                 <div class="row">
-                    <div class="col-md-3">Name:</div>
-                    <div class="col-md-6">{{product.productName}}</div>
+                    <div class="col-sm-3">Name:</div>
+                    <div class="col-sm-6">{{product.productName}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">Code:</div>
-                    <div class="col-md-6">{{product.productCode}}</div>
+                    <div class="col-sm-3">Code:</div>
+                    <div class="col-sm-6">{{product.productCode}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">Description:</div>
-                    <div class="col-md-6">{{product.description}}</div>
+                    <div class="col-sm-3">Description:</div>
+                    <div class="col-sm-6">{{product.description}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">Availability:</div>
-                    <div class="col-md-6">{{product.releaseDate}}</div>
+                    <div class="col-sm-3">Availability:</div>
+                    <div class="col-sm-6">{{product.releaseDate}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">Price:</div>
-                    <div class="col-md-6">{{product.price|currency:"USD":true}}</div>
+                    <div class="col-sm-3">Price:</div>
+                    <div class="col-sm-6">{{product.price|currency:"USD":true}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">5 Star Rating:</div>
-                    <div class="col-md-6">
-                        
+                    <div class="col-sm-3">5 Star Rating:</div>
+                    <div class="col-sm-6">
+                        <app-star-rating [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></app-star-rating>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <img class="center-block img-responsive"
                      [style.width.px]="200"
                      [style.margin.px]="2"
@@ -43,13 +45,70 @@
                      [title]="product.productName">
             </div>
         </div>
+        <ng-template #myEditForm>
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productName">Name:</label></div>
+                        <div class="col-sm-6">
+                            <input type="text" id="productName" class="form-control" formControlName="productName" required />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productCode">Code:</label></div>
+                        <div class="col-sm-6">
+                            <input type="text" id="productCode" class="form-control" formControlName="productCode" required />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productDescription">Description:</label></div>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="3" formControlName="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productAvailability">Availability:</label></div>
+                        <div class="col-sm-6">
+                            <input type="text" id="productAvailability" class="form-control" formControlName="releaseDate" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productPrice">Price:</label></div>
+                        <div class="col-sm-6">
+                            <input type="text" id="productPrice" class="form-control" formControlName="price" required />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3"><label for="productPrice">5 Star Rating:</label></div>
+                        <div class="col-sm-6">
+                            <app-star-rating [rating]="productForm.get('starRating').value" (ratingClicked)="onRatingClicked($event)"></app-star-rating>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="center-block img-responsive"
+                        [style.width.px]="200"
+                        [style.margin.px]="2"
+                        [src]="product.imageUrl"
+                        [title]="product.productName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9 text-center">
+                    <button type="submit" class="btn btn-primary">Save this awesome form!</button>
+                    <button type="button" (click)="initForm()" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
+         </form>
+        </ng-template>
     </div>
 
     <div class="panel-footer">
-        <p class="text-center">
-          <button routerLink="../">Back to products</button>
-          <button [routerLink]="['../', getNextProductId(product.id)]">Next product {{ getNextProductId(product.id) }}</button>
-        </p>
+        <div class="row text-center">
+          <button class="btn btn-primary" routerLink="../">Back to products</button>
+          <button class="btn btn-primary" [routerLink]="['../', getNextProductId(product.id)]">Next product {{ getNextProductId(product.id) }}</button>
+        </div>
     </div>
 </div>
 <ng-template #noProduct>
