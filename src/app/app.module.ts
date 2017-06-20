@@ -1,3 +1,4 @@
+import { ProductResolve } from './shared/resolves/product.resolve';
 import { APP_ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { StarRatingComponent } from './shared/components/star-rating/star-rating
 import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { ProductDetailComponent } from './modules/product/product-detail/product-detail.component';
 import { ProductComponent } from './modules/product/product.component';
+import { ProductIdGuard } from './shared/guards/product-id.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { ProductComponent } from './modules/product/product.component';
     RouterModule.forRoot(APP_ROUTES),
     HttpModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, ProductResolve, ProductIdGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

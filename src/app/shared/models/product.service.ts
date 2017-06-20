@@ -15,6 +15,17 @@ export class ProductService {
     return this._httpService.get('http://localhost:3000/products')
         .do((res: Response) => console.log(`GET query to '${res.url}': ${res.status}`))
         .map(res => res.json())
+        .catch(this._handleError('Products was not found'));
+  }
+
+  // Step-09: 1. Retrieve product from server!
+  getProduct(id: number): Observable<IProduct> {
+    if (isNaN(Number(id)) || id < 0) {
+      throw new Error('Given number must be valid and greater than 0');
+    }
+    return this._httpService.get(`http://localhost:3000/products/${id}`)
+        .do((res: Response) => console.log(`GET query to '${res.url}': ${res.status}`))
+        .map(res => res.json())
         .catch(this._handleError('Product was not found'));
   }
 

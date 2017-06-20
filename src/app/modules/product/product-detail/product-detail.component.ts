@@ -1,3 +1,6 @@
+import { IProduct } from '../../../shared/models/product.service';
+
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
@@ -8,10 +11,17 @@ import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() {
+  product$: Observable<IProduct>;
+
+  constructor(private _route: ActivatedRoute) {
+    this.product$ = this._route.data.map(data => data.product);
   }
 
   ngOnInit() {
+  }
+
+  getNextProductId(id: number) {
+    return id + 1;
   }
 
 }
