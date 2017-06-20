@@ -5,9 +5,14 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { Routes } from '@angular/router';
 
 export const PRODUCT_ROUTES: Routes = [
-    { path: ':id', component: ProductDetailComponent, resolve: {
-        product: ProductResolve
-    }, canActivate: [ProductIdGuard] },
+    {
+        path: ':id',
+        component: ProductDetailComponent,
+        resolve: { // Here the resolves
+            product: ProductResolve // Our product resolve (product name can be any string {myResolveName: MyResolveClass})
+        },
+        canActivate: [ProductIdGuard] // Here the list of canActivate guard
+    },
     { path: '', component: ProductListComponent },
     { path: '**', redirectTo: '' }
 ]

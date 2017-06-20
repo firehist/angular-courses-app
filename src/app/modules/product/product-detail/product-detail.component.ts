@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
   product$: Observable<IProduct>;
 
   constructor(private _route: ActivatedRoute) {
+    // Here we retrieve from the data property of the route (resolve) the product
     this.product$ = this._route.data.map(data => data.product);
   }
 

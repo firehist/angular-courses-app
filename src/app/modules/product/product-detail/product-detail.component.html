@@ -1,3 +1,4 @@
+<!-- Using Angular 4.x.x ngIf else syntax -->
 <div class="panel panel-primary" *ngIf="product$ | async; let product; else noProduct">
     <div class="panel-heading" style="font-size:large">
         {{pageTitle + ": " + product.productName}}
