@@ -370,7 +370,7 @@ import 'rxjs/add/operator/mergeMap';
 
 Proposed solution: [step-07-bonus](https://github.com/firehist/angular-courses-app/tree/step-07-bonus)
 
-### 08 - Navigation and Routing Basics
+## 08 - Navigation and Routing Basics
 
 **Set-up basic routes to navigate across the application**
 
@@ -553,6 +553,7 @@ canActivate(
 Here we go! 👌
 
 **Resolve**: It prepares our data for the targeted component
+
 **Guard**: It active/deactive a route based on custom check (here that the id is a number)
 
 </details>
