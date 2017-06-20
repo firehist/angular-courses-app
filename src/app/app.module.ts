@@ -38,12 +38,15 @@ import { ProductIdGuard } from './shared/guards/product-id.guard';
     RouterModule.forRoot(APP_ROUTES),
     HttpModule,
     ReactiveFormsModule
+<<<<<<< HEAD
   ],
   providers: [
     ProductService,
     ProductResolve,
     ProductIdGuard,
     ProductsResolve
+=======
+>>>>>>> Step-10
   ],
   bootstrap: [AppComponent]
 })
