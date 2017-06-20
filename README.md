@@ -46,7 +46,7 @@ ng serve
 
 Proposed solution: [step-00](https://github.com/firehist/angular-courses-app/tree/step-00)
 
-## 02 - Introduction to Components
+## 01 - Introduction to Components
 
 **Main idea: use ng generate and be familiar with basic component**
 
@@ -65,10 +65,11 @@ $ ng generate component header
 
 2. Add the selector element `<app-header></<app-header>` into the main HTML `app.component.html`
 3. Play with template to see what's going on
-  a. Add [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md) or [angular2-materialize](https://github.com/InfomediaLtd/angular2-materialize#installing--configuring-angular2-materialize-in-projects-created-with-the-angular-cli)
-  c. Design a navbar header to display the name of app and links for future routes
-  b. Add code between `<app-header>` and `</<app-header>`
-  c. be genious :D
+
+- Add [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md) or [angular2-materialize](https://github.com/InfomediaLtd/angular2-materialize#installing--configuring-angular2-materialize-in-projects-created-with-the-angular-cli)
+- Design a navbar header to display the name of app and links for future routes
+- Add code between `<app-header>` and `</<app-header>`
+- be genious :D
 
 </details>
 
