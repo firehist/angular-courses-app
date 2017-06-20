@@ -4,7 +4,8 @@ import { APP_ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+// step-10: 1.
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { ProductIdGuard } from './shared/guards/product-id.guard';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(APP_ROUTES),
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductService,
