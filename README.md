@@ -571,7 +571,25 @@ Proposed solution: [step-10](https://github.com/firehist/angular-courses-app/tre
 <summary>Click here to expand steps</summary>
 
 1. Import @angular modules `FormsModule` & `ReactiveFormsModule`
-2. Display a form to feed all field about product in HTML (in `ProductDetailComponent`)
+
+- Install npm package `@angular/forms`
+
+```
+$ npm install --save @angular/forms
+```
+
+- Import `FormsModule` & `ReactiveFormsModule` from `@angular/forms` into the app.module file
+
+```
+import { Formsmodule, ReactiveFormsModule } from '@angular/forms';
+// …
+@ngModule({
+    //…
+    imports: […, FormsModule, ReactiveFormsModule]
+})
+```
+
+2. Display a form to feed all fields about product in HTML template (in `ProductDetailComponent`)
 
     - You can use ngIf/else syntax
 
@@ -584,20 +602,103 @@ Proposed solution: [step-10](https://github.com/firehist/angular-courses-app/tre
 </ng-template>
 ```
 
-4. Create the forms in `model driver` way into the component
+4. Create the forms in `model driven` way into the component
 
 - Import useful artefact from `@angular/forms`: `FormBuilder`, `FormGroup`, `Validators`
 - Inject the `FormBuilder`
 - Design the form into the constructor
 
+```
+this.myForm = this._formBuilder.group({
+    id: '',
+    productName: '',
+    ... etc.
+})
+```
+
 5. Create and connect the HTML form to the JS FormGroup by using these directives: `FormGroup`, `FormControlName`
-6. Handle error message into the view by using the forms
-7. Create a custom validator and use it in the view. For example a Code validator.
-8. Write the submit method in order to save the product
+
+```
+<form [formGroup]="myForm">
+    //…
+    <input type="text" formControlName="productName" />
+    //…
+</form>
+```
+
+6. Display into the HTML a submit button which is disabled when the form is `INVALID`
+
+```
+<input type="submit" [disabled]="myForm.invalid" />
+```
+
+7. Change the input style based on [validation css rules](https://angular.io/guide/forms#track-control-state-and-validity-with-ngmodel)
+
+- Create a folder `./src/styles`
+- Create a file `./src/styles/form.css`
+
+```
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+```
+
+- Import this new css file into the `styles.css`
+
+```
+@import url(styles/form.css);
+```
+
+8. Write the submit method in order to save the product through a call to our server
+
+- Create a method `saveProduct(product: IProduct): Observable<IProduct>` into our `ProductService`.
+
+```
+return this._http.put(url, payload)
+    //…
+```
+
+- Create a method `onSubmit()` into our `ProductDetailComponent` in order to manage the form submission.
+
+```
+submit() {
+    if (this.formProduct.valid) {
+        this._productService.saveProduct(this.formProduct.value)
+            .subscribe(newProduct => {      // Here we subscribe to do the request
+                this.product$ = this.product$ = Observable.from([product])  // We create a new observable from the server response to update our product
+                this.toggleMode()
+            })
+    }
+}
+```
+
+- Into the `ProductDetailTemplate`, write a submit button, disabled if the form is invalid
+
+```
+<button type="submit" [disabled]="productForm.invalid">Save</button>
+```
 
 </details>
 
+### WARNING
+
+Here, we update the product into our component. It works like a charm 'cause we don't display information of this product concurrently in an other part of the view.
+
+If for example, we display current product name into the navbar, after a save, data will be different as we refresh only the `ProductDetailComponent` product information.
+
+In order to fix that, you cake a look to [step-07-bonus](https://github.com/firehist/angular-courses-app/tree/step-07-bonus) which, instead of returns Observables from angular `Http` service, will manage a collection in-memory and always returns this Observable, with or without filter.
+
+It will allow all our component to be aware of any change on this collection!
+
+We'll do this fix into **11 - Advanced forms**
+
 #### BONUS:
+
+
 
 - Make the app-star-component compatible with Forms
 - Implement a datepicker for the date
@@ -605,17 +706,118 @@ Proposed solution: [step-10](https://github.com/firehist/angular-courses-app/tre
 
 
 
-## 11 - Angular Modules
+## 11 - Advanced forms
 
-*Working based on 12 source code*
+Based on [step-10](https://github.com/firehist/angular-courses-app/tree/step-10)
 
-Following slides:
+Proposed solution: [step-11](https://github.com/firehist/angular-courses-app/tree/step-11)
 
-1. Create a Feature module called `ProductModule`
-2. Create a Shared module called `SharedModule`
-3. Refactor `AppModule` if necessary
-4. Create a `ProductRoutingModule` and a `AppRoutingModule` to split down routing configuration
-5. Optional: Create a `CoreComponent` to handle all services once in your application
+<details>
+<summary>Click here to expand steps</summary>
+
+1. Update our `ProductService` to manage a collection in-memory
+
+Use [step-07-bonus](https://github.com/firehist/angular-courses-app/tree/step-07-bonus)
+
+```
+class ProductService {
+
+    private products$: BehaviorSubject(Array<IProduct>) = new BehaviorSubject<Array<IProduct>>([])
+    private dataStore = {
+        products: []
+    }
+
+    constructor(private _http: HttpService) {
+        this._next() // Emit the dataStore.products event
+    }
+
+    getAll() {
+        // 1. Do the request call by subscribing
+        this._http.get(`URL`).map(res => res.json())
+            .subscribe(products => {
+                // 2. Sync our dataStore
+                this.syncProducts(products)
+            })
+        // 3. Return the BehaviorSubject as Observable
+        return this.products$.asObservable()
+    }
+
+    get(id: number) {
+        // 1. Same as getAll for one product
+        // 2. call _syncProduct instead of _syncProducts
+        // 3. Return the BehaviorSubjected as Observable with filter to get the product
+        return this.products$.asObservable()
+            .flatMap(products => products) // Flatten the Array<IProduct>
+            .filter(product => product.id === id)
+    }
+
+    private _syncProducts(products: Array<IProduct>) {
+        this.dataStore.products = products
+        this._next()
+    }
+
+    private _syncProduct(product: IProduct) {
+        this.dataStore.products.map(storeProduct => {
+            return storeProduct.id === product.id ?
+                product : storeProduct
+        })
+        this._next()
+    }
+
+    private _next() {
+        this.products$.next(this.dataStore.products)
+    }
+
+}
+```
+
+2. Create a [custom Validator](https://angular.io/guide/form-validation#custom-validation)
+
+- Create an empty file into `./src/app/shared/validators/product.validators.ts`
+- Write validator functions into it
+
+```
+export function validProductCode(control:AbstractControl): {[key: string]: any} => {
+    const productRegex = /[A-Z]{3}-[0-9]{4}/
+    const productCode = control.value
+    return productRegex.test(value) ? {'validProductCode': {productCode}} : null;
+}
+
+// Function below coming from angular spec
+export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} => {
+    const name = control.value;
+    const no = nameRe.test(name);
+    return no ? {'forbiddenName': {name}} : null;
+  };
+}
+```
+
+- Add `validProductCode` to the `productCode` validators Array into our form
+
+```
+import { validProductCode } from '../../shared/validators/product.validators.ts'
+//…
+productCode: ['', validProductCode]
+```
+
+- Add `forbiddenNameValidator` to the `productName` to block a regex (eg: blocked)
+
+```
+import { forbiddenNameValidator } from '../../shared/validators/product.validators.ts'
+//…
+productName: ['', [//…, forbiddenNameValidator(/blocked/)]]
+```
+
+3. Display error messages
+
+```
+<div *ngIf="productForm.get('productCode').errors?.validProductCode" class="alert alert-danger">
+    Invalid product code.
+</div>
+```
+
+</details>
 
 ## 12 - Angular 2 set-up revisited
 
