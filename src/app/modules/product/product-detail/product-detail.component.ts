@@ -1,8 +1,9 @@
 import { IProduct, ProductService } from '../../../shared/models/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Rx';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/observable/from';
 
@@ -16,11 +17,14 @@ export enum PRODUCT_DETAIL_MODE {
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, OnDestroy {
 
   product$: Observable<IProduct>;
   productForm: FormGroup
   mode: PRODUCT_DETAIL_MODE = PRODUCT_DETAIL_MODE.VIEW
+
+  // Use to store the subscription and unsubscribe into ngOnDestroy method
+  private productSubscription: Subscription
 
   constructor(
     private _route: ActivatedRoute,
@@ -46,6 +50,18 @@ export class ProductDetailComponent implements OnInit {
     this.initForm()
   }
 
+  ngOnDestroy() {
+    // Destroy subscription when component goes away
+    this.productSubscription.unsubscribe()
+  }
+
+  initForm() {
+    // We store the subscription into this.productSubscription
+    this.productSubscription = this.product$.subscribe(product => {
+      this.productForm.setValue(product)
+    })
+  }
+
   getNextProductId(id: number) {
     return id + 1;
   }
@@ -63,17 +79,14 @@ export class ProductDetailComponent implements OnInit {
     this.productForm.get('starRating').setValue(rating)
   }
 
-  initForm() {
-    this.product$.take(1).subscribe(product => {
-      this.productForm.setValue(product)
-    })
-  }
-
   onSubmit() {
     if (this.productForm.valid) {
       this._productService.saveProduct(this.productForm.value)
         .subscribe(product => {
-          this.product$ = Observable.from([product])
+          // This line update the current product information when back to view mode
+          // But it breaks other pages !
+          // Let's move to step-11 to fix that
+          //this.product$ = Observable.from([product])
           this.toggleMode()
         })
     }
