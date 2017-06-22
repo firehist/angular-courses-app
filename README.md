@@ -669,7 +669,7 @@ submit() {
     if (this.formProduct.valid) {
         this._productService.saveProduct(this.formProduct.value)
             .subscribe(newProduct => {      // Here we subscribe to do the request
-                this.product$ = this.product$ = Observable.from([product])  // We create a new observable from the server response to update our product
+                this.product$ = Observable.from([product])  // We create a new observable from the server response to update our product
                 this.toggleMode()
             })
     }
