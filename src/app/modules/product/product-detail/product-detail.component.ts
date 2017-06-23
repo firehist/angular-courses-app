@@ -1,29 +1,12 @@
-<<<<<<< HEAD
 import { IProduct, ProductService } from '../../../shared/models/product.service';
+import { forbiddenNameValidator, validProductCode } from '../../../shared/validators/product.validators'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Rx';
-=======
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
->>>>>>> Step-10
-import 'rxjs/add/operator/take';
-import 'rxjs/add/observable/from';
-=======
-import { IProduct, ProductService } from '../../../shared/models/product.service'
-import { forbiddenNameValidator, validProductCode } from '../../../shared/validators/product.validators'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router'
-import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/take'
 import 'rxjs/add/operator/last'
 import 'rxjs/add/observable/from'
->>>>>>> Step-11
 
 export enum PRODUCT_DETAIL_MODE {
   EDIT,
@@ -35,22 +18,12 @@ export enum PRODUCT_DETAIL_MODE {
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
-<<<<<<< HEAD
-export class ProductDetailComponent implements OnInit, OnDestroy {
-=======
 export class ProductDetailComponent {
->>>>>>> Step-11
 
   product$: Observable<IProduct>
   productForm: FormGroup
   mode: PRODUCT_DETAIL_MODE
 
-<<<<<<< HEAD
-  // Use to store the subscription and unsubscribe into ngOnDestroy method
-  private productSubscription: Subscription
-
-=======
->>>>>>> Step-10
   constructor(
     private _route: ActivatedRoute,
     private _productService: ProductService,
@@ -89,28 +62,6 @@ export class ProductDetailComponent {
     })
   }
 
-<<<<<<< HEAD
-  ngOnInit() {
-    this.initForm()
-<<<<<<< HEAD
-  }
-
-  ngOnDestroy() {
-    // Destroy subscription when component goes away
-    this.productSubscription.unsubscribe()
-  }
-
-  initForm() {
-    // We store the subscription into this.productSubscription
-    this.productSubscription = this.product$.subscribe(product => {
-      this.productForm.setValue(product)
-    })
-=======
->>>>>>> Step-10
-  }
-
-=======
->>>>>>> Step-11
   getNextProductId(id: number) {
     return id + 1
   }
@@ -128,35 +79,14 @@ export class ProductDetailComponent {
     this.productForm.get('starRating').setValue(rating)
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  initForm() {
-    this.product$.take(1).subscribe(product => {
-      this.productForm.setValue(product)
-    })
-=======
   initForm(product: IProduct) {
     this.productForm.setValue(product)
->>>>>>> Step-11
   }
 
->>>>>>> Step-10
   onSubmit() {
     if (this.productForm.valid) {
       this._productService.put(this.productForm.value)
         .subscribe(product => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-          // This line update the current product information when back to view mode
-          // But it breaks other pages !
-          // Let's move to step-11 to fix that
-          //this.product$ = Observable.from([product])
-=======
-          this.product$ = Observable.from([product])
->>>>>>> Step-10
-=======
->>>>>>> Step-11
           this.toggleMode()
         })
     }

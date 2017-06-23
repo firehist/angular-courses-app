@@ -40,15 +40,12 @@ import { ErrorsComponent } from './shared/components/errors/errors.component';
     RouterModule.forRoot(APP_ROUTES),
     HttpModule,
     ReactiveFormsModule
-<<<<<<< HEAD
   ],
   providers: [
     ProductService,
     ProductResolve,
     ProductIdGuard,
     ProductsResolve
-=======
->>>>>>> Step-10
   ],
   bootstrap: [AppComponent]
 })

@@ -9,7 +9,7 @@ export class ProductsResolve implements Resolve<IProduct[]> {
   constructor(private _productService: ProductService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProduct[]> {
-    return this._productService.getProducts()
+    return this._productService.getAll()
   }
 
 }
