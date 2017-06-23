@@ -1,3 +1,4 @@
+import { ProductsResolve } from './../../shared/resolves/products.resolve';
 import { ProductIdGuard } from './../../shared/guards/product-id.guard';
 import { ProductResolve } from './../../shared/resolves/product.resolve';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -13,6 +14,12 @@ export const PRODUCT_ROUTES: Routes = [
         },
         canActivate: [ProductIdGuard] // Here the list of canActivate guard
     },
-    { path: '', component: ProductListComponent },
+    {
+        path: '',
+        component: ProductListComponent,
+        resolve: { // Here the resolves
+            product: ProductsResolve // Our product resolve (product name can be any string {myResolveName: MyResolveClass})
+        },
+    },
     { path: '**', redirectTo: '' }
 ]

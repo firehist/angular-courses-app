@@ -1,3 +1,4 @@
+import { ProductsResolve } from './shared/resolves/products.resolve';
 import { ProductResolve } from './shared/resolves/product.resolve';
 import { APP_ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
@@ -36,7 +37,12 @@ import { ProductIdGuard } from './shared/guards/product-id.guard';
     RouterModule.forRoot(APP_ROUTES),
     HttpModule
   ],
-  providers: [ProductService, ProductResolve, ProductIdGuard],
+  providers: [
+    ProductService,
+    ProductResolve,
+    ProductIdGuard,
+    ProductsResolve
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
