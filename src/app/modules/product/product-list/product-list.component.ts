@@ -1,6 +1,6 @@
-import { IProduct, ProductService } from './../../../shared/models/product.service';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { IProduct, ProductService } from './../../../shared/models/product.service'
+import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'app-product-list',
@@ -10,18 +10,18 @@ import { Observable } from 'rxjs/Observable';
 export class ProductListComponent implements OnInit {
 
   pageTitle: string = 'Product List'
-  showImage: boolean = true;
-  listFilter: string = '';
-  products: Observable<IProduct[]>;
+  showImage: boolean = true
+  listFilter: string = ''
+  products$: Observable<IProduct[]>
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-      this.products = this.productService.getProducts();
+      this.products$ = this.productService.products$ // Here we get the ProductService Observable
   }
 
   toggleImage() {
-      this.showImage = !this.showImage;
+      this.showImage = !this.showImage
   }
 
 }

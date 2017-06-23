@@ -19,6 +19,7 @@ import { WelcomeComponent } from './modules/welcome/welcome.component';
 import { ProductDetailComponent } from './modules/product/product-detail/product-detail.component';
 import { ProductComponent } from './modules/product/product.component';
 import { ProductIdGuard } from './shared/guards/product-id.guard';
+import { ErrorsComponent } from './shared/components/errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductIdGuard } from './shared/guards/product-id.guard';
     StarRatingComponent,
     WelcomeComponent,
     ProductDetailComponent,
-    ProductComponent
+    ProductComponent,
+    ErrorsComponent
   ],
   imports: [
     BrowserModule,

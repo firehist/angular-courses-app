@@ -1,0 +1,11 @@
+<ul *ngIf="control.errors" class="alert alert-danger">
+    <li *ngIf="control.errors.validProductCode">
+      Invalid Product Code
+    </li>
+    <li *ngIf="control.errors.forbiddenName">
+      Invalid name!!!!!!!!
+    </li>
+    <li *ngIf="control.errors.minlength">
+      Invalid Length
+    </li>
+</ul>
