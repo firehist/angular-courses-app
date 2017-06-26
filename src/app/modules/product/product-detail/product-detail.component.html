@@ -10,36 +10,31 @@
     <div class="panel-body">
         <div class="row" *ngIf="!isEdit(); else myEditForm">
             <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-3">Name:</div>
-                    <div class="col-sm-6">{{product.productName}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">Code:</div>
-                    <div class="col-sm-6">{{product.productCode}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">Description:</div>
-                    <div class="col-sm-6">{{product.description}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">Availability:</div>
-                    <div class="col-sm-6">{{product.releaseDate}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">Price:</div>
-                    <div class="col-sm-6">{{product.price|currency:"USD":true}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">5 Star Rating:</div>
-                    <div class="col-sm-6">
+                <dl class="row">
+                    <dt class="col-sm-3">Name:</dt>
+                    <dd class="col-sm-9">{{product.productName}}</dd>
+                
+                    <dt class="col-sm-3">Code:</dt>
+                    <dd class="col-sm-9">{{product.productCode}}</dd>
+                
+                    <dt class="col-sm-3">Description:</dt>
+                    <dd class="col-sm-9">{{product.description}}</dd>
+                
+                    <dt class="col-sm-3">Availability:</dt>
+                    <dd class="col-sm-9">{{product.releaseDate}}</dd>
+                
+                    <dt class="col-sm-3">Price:</dt>
+                    <dd class="col-sm-9">{{product.price|currency:"USD":true}}</dd>
+                
+                    <dt class="col-sm-3">5 Star Rating:</dt>
+                    <dd class="col-sm-9">
                         <app-star-rating [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></app-star-rating>
-                    </div>
-                </div>
+                    </dd>
+                </dl>
             </div>
             <div class="col-sm-6">
                 <img class="center-block img-responsive"
-                     [style.width.px]="200"
+                     [style.height.px]="100"
                      [style.margin.px]="2"
                      [src]="product.imageUrl"
                      [title]="product.productName">
@@ -108,8 +103,9 @@
 
     <div class="panel-footer">
         <div class="row text-center">
-          <button class="btn btn-primary" routerLink="../">Back to products</button>
-          <button class="btn btn-primary" [routerLink]="['../', getNextProductId(product.id)]">Next product {{ getNextProductId(product.id) }}</button>
+          <button class="btn btn-primary" *ngIf="product.id > 1" [routerLink]="['../', getPreviousProductId(product.id)]">&lt;&lt; Previous</button>
+          <button class="btn btn-primary" routerLink="../">Back</button>
+          <button class="btn btn-primary" [routerLink]="['../', getNextProductId(product.id)]">Next &gt;&gt;</button>
         </div>
     </div>
 </div>

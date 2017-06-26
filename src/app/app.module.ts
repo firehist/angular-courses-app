@@ -1,13 +1,14 @@
+import { AuthGuard } from './shared/guard/auth.guard';
+import { AuthService } from './shared/services/auth.service';
+import { AuthComponent } from './modules/auth/auth.component';
 import { ProductsResolve } from './shared/resolves/products.resolve';
 import { ProductResolve } from './shared/resolves/product.resolve';
 import { APP_ROUTES } from './app.routes';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// step-10: 1.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 import { ProductListComponent } from './modules/product/product-list/product-list.component';
@@ -20,6 +21,8 @@ import { ProductDetailComponent } from './modules/product/product-detail/product
 import { ProductComponent } from './modules/product/product.component';
 import { ProductIdGuard } from './shared/guards/product-id.guard';
 import { ErrorsComponent } from './shared/components/errors/errors.component';
+import { AuthLoginComponent } from './modules/auth/auth-login/auth-login.component';
+import { AuthSignupComponent } from './modules/auth/auth-signup/auth-signup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ErrorsComponent } from './shared/components/errors/errors.component';
     WelcomeComponent,
     ProductDetailComponent,
     ProductComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    AuthLoginComponent,
+    AuthSignupComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,9 @@ import { ErrorsComponent } from './shared/components/errors/errors.component';
     ProductService,
     ProductResolve,
     ProductIdGuard,
-    ProductsResolve
+    ProductsResolve,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

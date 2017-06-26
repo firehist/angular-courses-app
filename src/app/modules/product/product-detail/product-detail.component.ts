@@ -66,6 +66,10 @@ export class ProductDetailComponent {
     return id + 1
   }
 
+  getPrevProductId(id: number) {
+    return id - 1
+  }
+
   isEdit() {
     return this.mode === PRODUCT_DETAIL_MODE.EDIT
   }

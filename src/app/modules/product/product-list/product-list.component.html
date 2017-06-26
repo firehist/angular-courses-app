@@ -6,9 +6,8 @@
     <!-- Filter the Products   -->
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-2">Filter by:</div>
-            <div class="col-md-10">
-                <input [(ngModel)]="listFilter" name="listFilter" type="text" placeholder="type to filter" />
+            <div class="col-sm-12 form-group">
+                <input [(ngModel)]="listFilter" name="listFilter" type="text" placeholder="type to filter" class="form-control" />
             </div>
         </div>
         <div class="row" *ngIf="listFilter">
