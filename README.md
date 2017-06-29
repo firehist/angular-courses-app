@@ -696,16 +696,6 @@ It will allow all our component to be aware of any change on this collection!
 
 We'll do this fix into **11 - Advanced forms**
 
-#### BONUS:
-
-
-
-- Make the app-star-component compatible with Forms
-- Implement a datepicker for the date
-- Export the form into a separated component in order to have a Create button :)
-
-
-
 ## 11 - Advanced forms
 
 Based on [step-10](https://github.com/firehist/angular-courses-app/tree/step-10)
@@ -819,18 +809,18 @@ productName: ['', [//…, forbiddenNameValidator(/blocked/)]]
 
 </details>
 
-## 12 - Angular 2 set-up revisited
+## 12 - Reactive Programming
 
 No challenge here!
 
-## 13 - Unit Testing w/ Jasmine & Karma
+## 13 - Angular 2 set-up revisited
 
-*Working based on 13 source code*
+No challenge here!
 
-## 14 - Reactive Programming
+## 14 - Unit Testing w/ Jasmine & Karma
 
 No challenge here!
 
 ## 15 - Data Store with @ngrx/store
 
-*Working based on 15 source code*
+No challenge here!
