@@ -12,11 +12,11 @@
     },
     {
       "id": 2,
-      "productName": "Garden Cart",
+      "productName": "Garden Carteee",
       "productCode": "GDN-0023",
       "releaseDate": "March 18, 2016",
-      "description": "15 gallon capacity rolling garden cart",
       "price": 32.99,
+      "description": "15 gallon capacity rolling garden cart",
       "starRating": 4.2,
       "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
     },
@@ -42,11 +42,11 @@
     },
     {
       "id": 5,
-      "productName": "Video Game Controller",
+      "productName": "Video Game Controllere",
       "productCode": "GMG-0042",
       "releaseDate": "October 15, 2015",
-      "description": "Standard two-button video game controller",
       "price": 35.95,
+      "description": "Standard two-button video game controller",
       "starRating": 4.6,
       "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }

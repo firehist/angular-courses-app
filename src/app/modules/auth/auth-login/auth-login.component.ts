@@ -26,7 +26,7 @@ export class AuthLoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const formValue = this.loginForm.value
+      const formValue = this.loginForm.getRawValue()
       this._authService.login(formValue.email, formValue.password)
       this._router.navigateByUrl('/products')
     }

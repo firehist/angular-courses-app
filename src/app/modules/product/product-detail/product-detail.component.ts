@@ -66,7 +66,7 @@ export class ProductDetailComponent {
     return id + 1
   }
 
-  getPrevProductId(id: number) {
+  getPreviousProductId(id: number) {
     return id - 1
   }
 

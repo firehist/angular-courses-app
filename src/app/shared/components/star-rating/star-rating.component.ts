@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class StarRatingComponent implements OnInit {
 
   @Input() rating: number = 0
+  @Input() readonly: boolean = false
   @Output() ratingClicked: EventEmitter<number> = new EventEmitter()
 
   constructor() { }
@@ -15,7 +16,9 @@ export class StarRatingComponent implements OnInit {
   ngOnInit() {}
 
   rateIt(rate: number) {
-    this.ratingClicked.emit(rate);
+    if (!this.readonly) {
+      this.ratingClicked.emit(rate);
+    } 
   }
 
 }

@@ -9,5 +9,13 @@
                 <a routerLink="products">Product List</a>
             </li>
         </ul>
+        <ul class="nav navbar-nav navbar-right" *ngIf="user$ | async; let user">
+            <li class="dropdown">
+                <a title="logout!" href="javascript:;" (click)="logout()" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="http://via.placeholder.com/30x30" width="30px" class="img-circle" />
+                    <strong>{{ user.login }}</strong>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
